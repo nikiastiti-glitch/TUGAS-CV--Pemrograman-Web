@@ -1,242 +1,63 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Tebak Angka</title>
 
-    <title>CV Niki Astiti Fitriya Cahyani</title>
-
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
-            margin: 0;
-            padding: 30px;
-        }
-
-        .cv {
-            width: 800px;
-            margin: auto;
-            background-color: rgb(224, 181, 181);
-            padding: 30px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.2);
-        }
-
-        .header {
-            text-align: center;
-            border-bottom: 3px solid #5f5e5e;
-            padding-bottom: 20px;
-        }
-
-        .foto {
-            width: 130px;
-            height: 130px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        h1 {
-            margin-bottom: 5px;
-            color: #222;
-        }
-
-        .profesi {
-            color: #0a0a0a;
-            font-size: 18px;
-        }
-
-        h2 {
-            color: #333;
-            border-bottom: 2px solid #333;
-            padding-bottom: 5px;
-            margin-top: 25px;
-        }
-
-        p {
-            line-height: 1.6;
-        }
-
-        ul {
-            line-height: 1.8;
-        }
-
-        .data-diri {
-            display: grid;
-            grid-template-columns: 150px 1fr;
-            gap: 8px;
-        }
-
-        .data-diri div:nth-child(odd) {
-            font-weight: bold;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        table, th, td {
-            border: 1px solid #999;
-        }
-
-        th, td {
-            padding: 10px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #ce9696;
-        }
-
-        .footer {
-            text-align: center;
-            margin-top: 30px;
-            padding-top: 15px;
-            border-top: 1px solid #ccc;
-            color: #777;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-    <div class="cv">
+    <div class="game-container">
+        <div class="icon">🎯</div>
 
-        <!-- HEADER -->
-        <div class="header">
+        <h1>Tebak Angka</h1>
+        <p class="subtitle">
+            Aku punya angka rahasia antara 1 sampai 100!
+        </p>
 
-        
-            <h1>NIKI ASTITI FITRIYA CAHYANI</h1>
-
-            <div class="profesi">
-                Mahasiswa | Informatika
+        <div class="info">
+            <div class="info-box">
+                <span>Skor</span>
+                <strong id="score">100</strong>
             </div>
 
-            <p>
-                Email: nikiastiti@gmail.com |
-                No. HP: 089506327978
-            </p>
-
+            <div class="info-box">
+                <span>Percobaan</span>
+                <strong id="attempts">0</strong>
+            </div>
         </div>
 
+        <label for="guessInput">Masukkan tebakanmu</label>
 
-        <!-- TENTANG SAYA -->
-        <h2>Tentang Saya</h2>
+        <input
+            type="number"
+            id="guessInput"
+            min="1"
+            max="100"
+            placeholder="Contoh: 50"
+        >
 
-        <p>
-            Saya adalah mahasiswa yang memiliki ketertarikan pada bidang
-            teknologi informasi, organisasi, dan pengembangan diri.
-            Saya memiliki kemampuan bekerja secara individu maupun dalam tim,
-            serta memiliki semangat untuk mempelajari hal-hal baru.
+        <button id="guessButton">Tebak Angka</button>
+
+        <p id="message" aria-live="polite">
+            Ayo mulai permainan!
         </p>
 
-
-        <!-- DATA DIRI -->
-        <h2>Data Diri</h2>
-
-        <div class="data-diri">
-
-            <div>Nama</div>
-            <div>: Niki Astiti Fitriya Cahyani</div>
-
-            <div>Tempat, Tanggal Lahir</div>
-            <div>: Ponorogo, 25 Oktober 2007</div>
-
-            <div>Alamat</div>
-            <div>: Kediri, Jawa Timur</div>
-
-            <div>Email</div>
-            <div>: nikiastiti@gmail.com</div>
-
-            <div>No. HP</div>
-            <div>: 089506327978</div>
-
+        <div class="history">
+            <h3>Riwayat Tebakan</h3>
+            <ul id="historyList">
+                <li>Belum ada tebakan.</li>
+            </ul>
         </div>
 
-
-        <!-- PENDIDIKAN -->
-        <h2>Pendidikan</h2>
-
-        <table> 
-
-            <tr>
-                <th>Tahun</th>
-                <th>Pendidikan</th>
-            </tr>
-
-            <tr>
-                <td>2024 - Sekarang</td>
-                <td>Universitas Muhammadiyah Ponorogo</td>
-            </tr>
-
-            <tr>
-                <td>2021 - 2024</td>
-                <td>SMA/SMK/MA</td>
-            </tr>
-
-            <tr>
-                <td>2018 - 2021</td>
-                <td>SMP</td>
-            </tr>
-
-        </table>
-
-
-        <!-- PENGALAMAN -->
-        <h2>Pengalaman Organisasi</h2>
-
-        <ul>
-
-            <li>
-                Anggota UKM Mahasiswa Pecinta Alam
-            </li>
-
-            <li>
-                Mengikuti kegiatan kepanitiaan dan kegiatan kampus
-            </li>
-
-            <li>
-                Berpartisipasi dalam kegiatan sosial dan organisasi mahasiswa
-            </li>
-
-        </ul>
-
-
-        <!-- KETERAMPILAN -->
-        <h2>Keterampilan</h2>
-
-        <ul>
-
-            <li>Microsoft Word</li>
-            <li>Microsoft PowerPoint</li>
-            <li>HTML dan CSS dasar</li>
-            <li>Canva</li>
-            <li>Kerja sama tim</li>
-            <li>Komunikasi</li>
-
-        </ul>
-
-
-        <!-- KONTAK -->
-        <h2>Kontak</h2>
-
-        <p>
-            Instagram: @nikii.ast
-            <br>
-            Email: nikiastiti@gmail.com
-            <br>
-            WhatsApp: 089506327978
-        </p>
-
+        <button id="restartButton" class="restart">
+            🔄 Main Lagi
+        </button>
     </div>
 
+    <script src="script.js"></script>
 </body>
 </html>
